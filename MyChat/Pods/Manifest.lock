@@ -1,0 +1,24 @@
+PODS:
+  - ReactiveSwift (3.1.0):
+    - Result (~> 3.2)
+  - Result (3.2.4)
+  - SendBirdSDK (3.0.122)
+
+DEPENDENCIES:
+  - ReactiveSwift (~> 3.0)
+  - SendBirdSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReactiveSwift
+    - Result
+    - SendBirdSDK
+
+SPEC CHECKSUMS:
+  ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SendBirdSDK: ce53a84e53c3427b6e21f0ec2eeaff2b3a88cd39
+
+PODFILE CHECKSUM: a4ce7fefe8b9de60a22cd888a00f8972bd473e7c
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="MyChat" customModuleProvider="target">
+            <connections>
+                <outlet property="changabelConstraint" destination="LdK-iy-Vov" id="GMV-6r-SoN"/>
+                <outlet property="collectionView" destination="wkr-CG-aiZ" id="xpj-bf-SLd"/>
+                <outlet property="inputMessageTextField" destination="0SZ-yB-aD7" id="fVv-4H-MkE"/>
+                <outlet property="sendMessageButton" destination="qp8-Mp-99s" id="yws-Wh-Xeg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wkr-CG-aiZ">
+                    <rect key="frame" x="0.0" y="20" width="375" height="602"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uOF-dh-eF7">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp8-Mp-99s">
+                    <rect key="frame" x="335" y="627" width="35" height="35"/>
+                    <color key="backgroundColor" red="0.26308885520000003" green="0.25198827950000002" blue="1" alpha="0.83553617294520544" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="v8e-QR-BHg"/>
+                        <constraint firstAttribute="width" secondItem="qp8-Mp-99s" secondAttribute="height" multiplier="1:1" id="ww5-8b-y61"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                    <state key="normal" title="↑"/>
+                    <connections>
+                        <action selector="sendMessageActionHandler:" destination="-1" eventType="touchUpInside" id="xQ8-9C-fxP"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type message..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0SZ-yB-aD7" customClass="InteractiveTextField" customModule="MyChat" customModuleProvider="target">
+                    <rect key="frame" x="5" y="627" width="325" height="35"/>
+                    <color key="backgroundColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0SZ-yB-aD7" firstAttribute="top" secondItem="wkr-CG-aiZ" secondAttribute="bottom" constant="5" id="0N0-zo-7Lk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qp8-Mp-99s" secondAttribute="trailing" constant="5" id="BU6-Vg-j0w"/>
+                <constraint firstItem="qp8-Mp-99s" firstAttribute="bottom" secondItem="0SZ-yB-aD7" secondAttribute="bottom" id="Ii7-WR-gwe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wkr-CG-aiZ" secondAttribute="trailing" id="IkU-q1-4qv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0SZ-yB-aD7" secondAttribute="bottom" constant="5" id="LdK-iy-Vov"/>
+                <constraint firstItem="qp8-Mp-99s" firstAttribute="height" secondItem="0SZ-yB-aD7" secondAttribute="height" id="Ple-OQ-64D"/>
+                <constraint firstItem="wkr-CG-aiZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kU2-ZX-5CN"/>
+                <constraint firstItem="wkr-CG-aiZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uaq-fe-3wg"/>
+                <constraint firstItem="0SZ-yB-aD7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="wJj-si-xRj"/>
+                <constraint firstItem="qp8-Mp-99s" firstAttribute="leading" secondItem="0SZ-yB-aD7" secondAttribute="trailing" constant="5" id="zau-y2-29Y"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="123.68815592203899"/>
+        </view>
+    </objects>
+</document>

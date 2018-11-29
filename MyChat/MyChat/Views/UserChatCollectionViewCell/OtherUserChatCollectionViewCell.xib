@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GtD-z4-NEH" userLabel="Other User Chat Collection View Cell" customClass="UserChatCollectionViewCell" customModule="MyChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="106"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="106"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfc-y7-RGz" customClass="MessageLabel" customModule="MyChat" customModuleProvider="target">
+                        <rect key="frame" x="50" y="33" width="58" height="40"/>
+                        <color key="backgroundColor" red="0.35429152397260272" green="0.69330744131780819" blue="0.80260059934109573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Q9m-hm-cgZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyS-fu-sJ7">
+                        <rect key="frame" x="5" y="33" width="40" height="40"/>
+                        <color key="backgroundColor" red="1" green="0.51665268689999999" blue="0.38563119039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JyS-fu-sJ7" secondAttribute="height" multiplier="1:1" id="Hyl-ev-ZEq"/>
+                            <constraint firstAttribute="height" constant="40" id="Xw8-Ww-XYH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="tintColor" red="0.66898544520547942" green="0.66898544520547942" blue="0.66898544520547942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rfc-y7-RGz" firstAttribute="centerY" secondItem="GtD-z4-NEH" secondAttribute="centerY" id="8tH-vW-Mne"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rfc-y7-RGz" secondAttribute="bottom" constant="5" id="C9X-mT-Sgd"/>
+                <constraint firstItem="JyS-fu-sJ7" firstAttribute="centerY" secondItem="GtD-z4-NEH" secondAttribute="centerY" id="ONX-3t-i6c"/>
+                <constraint firstItem="rfc-y7-RGz" firstAttribute="leading" secondItem="JyS-fu-sJ7" secondAttribute="trailing" constant="5" id="TFC-ga-YnN"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rfc-y7-RGz" secondAttribute="trailing" constant="20" id="b8x-Vo-Y83"/>
+                <constraint firstItem="rfc-y7-RGz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GtD-z4-NEH" secondAttribute="top" constant="5" id="o9t-Jm-Pwm"/>
+                <constraint firstItem="JyS-fu-sJ7" firstAttribute="leading" secondItem="GtD-z4-NEH" secondAttribute="leading" constant="5" id="wXA-cZ-efe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aNL-P5-ore"/>
+            <size key="customSize" width="411" height="106"/>
+            <connections>
+                <outlet property="messageLabel" destination="rfc-y7-RGz" id="J9T-Ic-07R"/>
+                <outlet property="userLabel" destination="JyS-fu-sJ7" id="9vO-Jp-pDQ"/>
+            </connections>
+            <point key="canvasLocation" x="165.59999999999999" y="282.4587706146927"/>
+        </collectionViewCell>
+    </objects>
+</document>
