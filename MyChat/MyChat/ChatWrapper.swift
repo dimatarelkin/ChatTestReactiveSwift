@@ -31,28 +31,34 @@ enum RetrievalError: Error {
 class ChatWrapper {
     
     //Producer
-    static func messageCollectionProducer() -> SignalProducer<[Message], RetrievalError> {
+    static func messageCollectionProducer(message: Message?) -> SignalProducer<[Message], RetrievalError> {
         return SignalProducer({ (signal, lifetime) in
             
-            //local messages
-            switch ChatWrapper.localMessages() {
-            case .success(let messages):
-                
-                signal.send(value: messages)
-                
-            case .failure(let someError):
-                signal.send(error: RetrievalError.CannotRetrieveFRomDB(someError))
+            guard !lifetime.hasEnded, let mes = message else {
+                signal.sendInterrupted()
                 return
             }
-            
-            //network messages
-            switch ChatWrapper.networkMessages() {
-            case .success(let messages):
-                signal.send(value: messages)
-                signal.sendCompleted()
-            case .failure(let networkError):
-                signal.send(error: RetrievalError.CannotRetriveFRomNetwork(networkError))
-            }
+
+            signal.send(value: [mes])
+//            //local messages
+//            switch ChatWrapper.localMessages() {
+//            case .success(let messages):
+//
+//                signal.send(value: messages)
+//
+//            case .failure(let someError):
+//                signal.send(error: RetrievalError.CannotRetrieveFRomDB(someError))
+//                return
+//            }
+//
+//            //network messages
+//            switch ChatWrapper.networkMessages() {
+//            case .success(let messages):
+//                signal.send(value: messages)
+//                signal.sendCompleted()
+//            case .failure(let networkError):
+//                signal.send(error: RetrievalError.CannotRetriveFRomNetwork(networkError))
+//            }
         })
     }
     
@@ -81,19 +87,26 @@ class ChatWrapper {
     }
     
     
+    
+    
     //local
     private static func localMessages() -> Result<[Message],LocalStoreError> {
-        //retrieve messages
+       //retrieve messages from dtabase
+        
         let message = Message(text: "hello from local", sender: User(firstName: "sd", lastName: "sd"), messageType: .MessageFromCurentUser)
         
         return Result([message,message,message], failWith: LocalStoreError.SomeError("someError"))
     }
     
+    
+    
+    
     //network
     private static func networkMessages() -> Result<[Message],NetworkError> {
-        //retrieve messages
         
-         let message = Message(text: "hello from network", sender: User(firstName: "sd", lastName: "sd"), messageType: .MessageFromCurentUser)
-        return Result([message,message,message], failWith: NetworkError.SomeNetworkError("someNetworkError"))
+        //retrieve messages network
+//
+        let message = Message(text: "hello from network", sender: User(firstName: "sd", lastName: "sd"), messageType: .MessaheFromOtherUser)
+        return Result([message], failWith: NetworkError.SomeNetworkError("someNetworkError"))
     }
 }

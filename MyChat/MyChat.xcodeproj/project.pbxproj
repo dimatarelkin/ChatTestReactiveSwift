@@ -30,6 +30,9 @@
 		3245007021A7EA2600C5D69E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3245006E21A7EA2600C5D69E /* LoginViewController.xib */; };
 		3245007121A7EA2600C5D69E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245006F21A7EA2600C5D69E /* LoginViewController.swift */; };
 		3245007321A7EAA900C5D69E /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245007221A7EAA900C5D69E /* InteractiveTextField.swift */; };
+		32A209E021AFD86D000159E0 /* ChatViewController+SignalHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A209DF21AFD86D000159E0 /* ChatViewController+SignalHandling.swift */; };
+		32A209E221AFD8A2000159E0 /* ChatViewController+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A209E121AFD8A1000159E0 /* ChatViewController+Protocols.swift */; };
+		32A209E421AFE17A000159E0 /* ChatViewController+SBDChannelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A209E321AFE17A000159E0 /* ChatViewController+SBDChannelDelegate.swift */; };
 		372945385D66517BC8762659 /* Pods_MyChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3804CFADFF3590F7FE76B468 /* Pods_MyChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		3245006E21A7EA2600C5D69E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		3245006F21A7EA2600C5D69E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3245007221A7EAA900C5D69E /* InteractiveTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
+		32A209DF21AFD86D000159E0 /* ChatViewController+SignalHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+SignalHandling.swift"; sourceTree = "<group>"; };
+		32A209E121AFD8A1000159E0 /* ChatViewController+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Protocols.swift"; sourceTree = "<group>"; };
+		32A209E321AFE17A000159E0 /* ChatViewController+SBDChannelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+SBDChannelDelegate.swift"; sourceTree = "<group>"; };
 		3764E460C797784F90D92B56 /* Pods-MyChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyChat/Pods-MyChat.debug.xcconfig"; sourceTree = "<group>"; };
 		3804CFADFF3590F7FE76B468 /* Pods_MyChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,6 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				323320CC21A8199E00D6DB6F /* ChatViewController.swift */,
+				32A209E321AFE17A000159E0 /* ChatViewController+SBDChannelDelegate.swift */,
+				32A209E121AFD8A1000159E0 /* ChatViewController+Protocols.swift */,
+				32A209DF21AFD86D000159E0 /* ChatViewController+SignalHandling.swift */,
 				323320D321A9701B00D6DB6F /* ChatViewController+UICollectionViewDelegate.swift */,
 				323320E621AAB2F000D6DB6F /* ChatViewController+KeyboardHandling.swift */,
 				323320CD21A8199E00D6DB6F /* ChatViewController.xib */,
@@ -336,11 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A209E221AFD8A2000159E0 /* ChatViewController+Protocols.swift in Sources */,
 				323320D221A853A600D6DB6F /* UIViewController+KeyboardHandling.swift in Sources */,
 				3245006021A7D61800C5D69E /* Channel.swift in Sources */,
 				323320D421A9701B00D6DB6F /* ChatViewController+UICollectionViewDelegate.swift in Sources */,
 				3245005A21A7D49000C5D69E /* Network Manager.swift in Sources */,
 				323320ED21AAC94200D6DB6F /* MessageLabel.swift in Sources */,
+				32A209E021AFD86D000159E0 /* ChatViewController+SignalHandling.swift in Sources */,
 				323320CE21A8199E00D6DB6F /* ChatViewController.swift in Sources */,
 				3245004521A7D2B500C5D69E /* AppDelegate.swift in Sources */,
 				3245005E21A7D60F00C5D69E /* Message.swift in Sources */,
@@ -348,6 +359,7 @@
 				323320D821A98A4600D6DB6F /* UserChatCollectionViewCell.swift in Sources */,
 				3245007121A7EA2600C5D69E /* LoginViewController.swift in Sources */,
 				323320E721AAB2F000D6DB6F /* ChatViewController+KeyboardHandling.swift in Sources */,
+				32A209E421AFE17A000159E0 /* ChatViewController+SBDChannelDelegate.swift in Sources */,
 				3245005C21A7D60400C5D69E /* User.swift in Sources */,
 				323320CB21A8189300D6DB6F /* Service.swift in Sources */,
 				323320EF21AADCE700D6DB6F /* ChatWrapper.swift in Sources */,

@@ -25,35 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //instatiate SBD
         SBDMain.initWithApplicationId(kAppID)
         
+      
         //log in vc
-//        let LogInVC = LoginViewController()
-        let chat = ChatViewController()
-        
+        let logInVC = LoginViewController()
+//        let chat = ChatViewController()
+                
         self.window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window?.rootViewController = LogInVC
-        self.window?.rootViewController = chat
+        self.window?.rootViewController = logInVC
         self.window?.makeKeyAndVisible()
-        
-        //network
-        
-
-        let observingSignal = Signal<[Message], RetrievalError>.Observer(
-        value: { (messages) in
-            messages.forEach({ (message) in
-                print(message.text)
-            })
-        }, failed: { (retrievalError) in
-            print(retrievalError.localizedDescription)
-        }, completed: {             print("completed")
-        }) {
-            print("interapted")
-        }
-        
-//        let disposable = chatWrapper.messageCollectionProducer().start(observingSignal)
-        let dis = ChatWrapper.messageCollectionProducer().start(observingSignal)
-        
-        //disposable.dispose()
-        
         
         return true
     }
