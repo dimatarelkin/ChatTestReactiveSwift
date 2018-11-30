@@ -18,8 +18,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var changabelConstraint: NSLayoutConstraint!
     
     var dataSource: Array<Message> = []
-    var channel: SBDBaseChannel?
-    
+    var channel: SBDOpenChannel?
+    let channelID = "Generalblassdfsdfsfa39u934hsih237sdhsdkjeo83yuhhiussds23ds"
     
     
     override func viewDidLoad() {
@@ -28,8 +28,6 @@ class ChatViewController: UIViewController {
         //delegates
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
-        SBDMain.add(self, identifier: "some")
         
         //setup views
         self.setupViews()
@@ -45,39 +43,18 @@ class ChatViewController: UIViewController {
         
         //CONNECT TO CHAT
         self.connect()
+        
+        //bind
     }
     
     
-    func connect() {
-        let channelID = "Generalblassdfsdfsfa39u934hsih237sdhsdkjeo83yuhhiussds23ds"
-        
-        SBDOpenChannel.getWithUrl(channelID) { [weak self] (channel, error) in
-            guard error == nil, let channel = channel else {
-                self?.showAlertWithTitle("Error", message: "Can't fetch the chat")
-                return
-            }
-            print(channel.description)
-            self?.channel = channel
-            channel.enter(completionHandler: { (error) in
-                guard error == nil else {
-                    self?.showAlertWithTitle("Error", message: "Can't enter the chat")
-                    return
-                }
-                
-                channel.sendUserMessage("Hello!", completionHandler: { (message, error) in
-                    guard error == nil else {
-                        self?.showAlertWithTitle("Error", message: "Initial message hasn't been delivered")
-                        return
-                    }
-                    
-                    print(message?.sender?.userId)
-                })
-            })
-        }
-        
-        SBDMain.add(self as SBDChannelDelegate, identifier: "chat")
-        
+    func bind() {
+        self.disposable
     }
+    
+    
+    
+   
     
     
     func setupViews(){
@@ -94,23 +71,10 @@ class ChatViewController: UIViewController {
     @IBAction func sendMessageActionHandler(_ sender: Any) {
         self.view.endEditing(false)
         guard let message = self.inputMessageTextField.text, message != "" else {return}
-        
-        /*
-        //////////////
-        let randomCelltype = arc4random()
-        var type: Message.MessageType
-        
-        if randomCelltype % 2 == 0 {
-            type = .MessageFromCurentUser
-        } else {
-            type = .MessaheFromOtherUser
-        }
-        ///////////////////////
-        */
-        
+
         let mes = Message(text: message, sender: User(firstName: "Dima", lastName: "Tarelkin"), messageType: .MessageFromCurentUser)
         
-//        self.dataSource.append(mes)
+        
         self.channel?.sendUserMessage(mes.text, completionHandler: { (message, error) in
             guard error == nil else {
                 return
@@ -118,8 +82,9 @@ class ChatViewController: UIViewController {
             print("delivered")
         })
         
-//        //reload data
-//        self.collectionView.reloadData()
+        //reload data
+        self.dataSource.append(mes)
+        self.collectionView.reloadData()
         self.inputMessageTextField.text = nil
 
     }

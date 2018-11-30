@@ -13,12 +13,16 @@ import Result
 import SendBirdSDK
 
 extension ChatViewController: SBDChannelDelegate {
+    
+    
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
+
+        let usermessage = message as? SBDUserMessage
+        let mess = Message(text: usermessage?.message ?? "no data", sender: User(firstName: "sdfjksd", lastName: "fdfjkkj"), messageType: .MessageFromOtherUser)
         
-        print(message.description)
+        print(mess.text)
         
-        let mess = Message(text: message.data!, sender: User(firstName: "sdfjksd", lastName: "fdfjkkj"), messageType: .MessaheFromOtherUser)
-        ChatWrapper.messageCollectionProducer(message: mess).start()
+        self.observer.send(value: [mess])
     }
 }
 

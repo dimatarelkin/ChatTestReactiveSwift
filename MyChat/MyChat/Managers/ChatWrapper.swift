@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SendBirdSDK
 import ReactiveSwift
 import Result
 
@@ -29,6 +30,7 @@ enum RetrievalError: Error {
 
 
 class ChatWrapper {
+
     
     //Producer
     static func messageCollectionProducer(message: Message?) -> SignalProducer<[Message], RetrievalError> {
@@ -106,7 +108,8 @@ class ChatWrapper {
         
         //retrieve messages network
 //
-        let message = Message(text: "hello from network", sender: User(firstName: "sd", lastName: "sd"), messageType: .MessaheFromOtherUser)
+        let message = Message(text: "hello from network", sender: User(firstName: "sd", lastName: "sd"), messageType: .MessageFromOtherUser)
         return Result([message], failWith: NetworkError.SomeNetworkError("someNetworkError"))
     }
+    
 }

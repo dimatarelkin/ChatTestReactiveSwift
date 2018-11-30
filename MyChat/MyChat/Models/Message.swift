@@ -13,7 +13,7 @@ class Message {
     
     enum MessageType {
         case MessageFromCurentUser
-        case MessaheFromOtherUser
+        case MessageFromOtherUser
     }
     
     var messageID: String?

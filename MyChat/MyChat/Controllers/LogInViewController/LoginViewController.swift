@@ -16,10 +16,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.hidesWhenStopped = true
         // Do any additional setup after loading the view.
     }
     
@@ -28,13 +34,9 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-
-    
     func setupSubviews() {
         self.title = "Welcome"
-        
         self.resultLabel.text = nil
-        
         self.loginTextField.isHidden = false
         self.signInButton.isHidden = false
         
@@ -62,7 +64,17 @@ class LoginViewController: UIViewController {
                 return
         }
         
+        //style
+        sender.startWaitingState()
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
+        
         SBDMain.connect(withUserId: username) { [weak self] (user, error) in
+            //style
+            self?.activityIndicator.stopAnimating()
+            sender.endWaitingState()
+                        
             guard error == nil else {
                 self?.showAlertWithTitle("Error", message: "Error occured")
                 return
@@ -75,14 +87,11 @@ class LoginViewController: UIViewController {
             
             //assign current user
             Service.currentUser = user
-            
             let chat = ChatViewController()
             self?.present(chat, animated: true, completion: nil)
         }
+        
     }
-    
-    
-    
     
     
 }
@@ -90,17 +99,4 @@ class LoginViewController: UIViewController {
 
 
 
-extension UIViewController {
-    
-    /**
-     Showing alert with title and message.
-     */
-    
-    func showAlertWithTitle(_ title: String?, message: String?) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-}
+

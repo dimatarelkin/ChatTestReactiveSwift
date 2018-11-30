@@ -28,22 +28,5 @@ class Service {
             }
         }
     }
-    
-    func getTheChannel() {
-        SBDOpenChannel.getWithUrl("CHANNEL_URL") { (channel, error) in
-            guard error == nil else {    // Error.
-                return
-            }
-            
-            channel?.enter(completionHandler: { (error) in
-                guard error == nil else {    // Error.
-                    return
-                }
-            })
-        }
-    }
-    
-    
-    
-    
+
 }
